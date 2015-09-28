@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+	  <meta content="yes" name="apple-mobile-web-app-capable" />
+	  <meta content="yes" name="apple-touch-fullscreen" />
+	  <meta content="telephone=no,email=no" name="format-detection" />
+	  <link rel="stylesheet" type="text/css" href="http://news.sohu.com/upload/commonzzx/normal.css">
+	  <link rel="stylesheet" href="http://news.sohu.com/upload/yursileobama/css/main.css">
+	  <script src="http://news.sohu.com/upload/commonzzx/jquery-2.1.1.min.js"></script>
+	  <script src="http://news.sohu.com/upload/commonzzx/preload.js"></script>
+	<title>Document</title>
+</head>
+<body  ontouchmove="event.preventDefault();">
+
+ 	<div class="loading">
+	    <div class="pace">
+	      <div class="pace-progress">
+	        0
+	      </div>
+	    </div>
+	</div>
+	<script>
+	  function initView() {
+	    var windowRatio = $(window).width() / 320;
+	    var windowRatio = windowRatio > 2 ? 2 : windowRatio;
+	    $('body').css('font-size', (windowRatio * 62.5 + '%'));
+	    $('.main').height(windowRatio * 510);
+	  }
+	  var loader = new resLoader({
+	    resources: [
+	      'http://news.sohu.com/upload/yursileobama/image/q2.png',
+		  'http://news.sohu.com/upload/yursileobama/image/d3.png',
+	    ],
+	    onStart: function(total) {},
+	    onProgress: function(current, total) {
+	      var percent = parseInt(current / total * 100) + '%';
+	      $('.pace-progress').text(percent);
+	    },
+	    onComplete: function(total) {
+	      $('.loading').hide();
+	      initView();
+	    }
+	  });
+	  loader.start();
+	  </script>
+
+
+	<div class="main">
+			
+	</div>
+
+
+	<script type="text/javascript" src="http://news.sohu.com/upload/commonzzx/touch-0.2.14.min.js"></script>
+	
+	
+	<script src="http://news.sohu.com/upload/commonzzx/share.js"></script>
+	<script src="http://news.sohu.com/upload/commonzzx/tongji.js"></script>
+	<script>
+	// 分享
+	var shareDetail = {
+	  'imgUrl': 'images/share.jpg',
+	  'link': window.location.href,
+	  'title': '奥巴马为习大大备的酒价值几何？',
+	  'content': '奥巴马国宴上接待习大大的酒，值多少钱？'
+	}
+	</script>
+
+
+</body>
+</html>
